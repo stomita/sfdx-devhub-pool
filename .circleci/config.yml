@@ -18,7 +18,7 @@ jobs:
           name: Run
           command: |
             mkdir -p keys
-            echo ${DEVHUB_SERVER_KEY_BASE64} | base64 -D >> keys/server.key
+            echo ${DEVHUB_SERVER_KEY_BASE64} | base64 -d >> keys/server.key
             for username in `echo ${DEVHUB_POOL_USERNAMES} | sed "s/,/ /g"`
             do
               yarn -s sfdx force:auth:jwt:grant -i ${SF_CLIENT_ID} -f keys/server.key -u ${username}
