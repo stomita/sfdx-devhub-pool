@@ -40,7 +40,7 @@ EXAMPLES
   hub01,hub02
 ```
 
-_See code: [src/commands/devhubpool/auth/jwt/grant.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/devhubpool/auth/jwt/grant.ts)_
+_See code: [src/commands/devhubpool/auth/jwt/grant.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.1.0/src/commands/devhubpool/auth/jwt/grant.ts)_
 
 ## `sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
@@ -73,5 +73,5 @@ EXAMPLES
   -a OrgWithOverrides username=testuser1@mycompany.org
 ```
 
-_See code: [src/commands/devhubpool/org/create.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/devhubpool/org/create.ts)_
+_See code: [src/commands/devhubpool/org/create.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.1.0/src/commands/devhubpool/org/create.ts)_
 <!-- commandsstop -->
