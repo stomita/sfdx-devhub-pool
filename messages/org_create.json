@@ -1,6 +1,12 @@
 {
-  "commandDescription": "print a greeting and your org IDs",
-  "nameFlagDescription": "name to print",
-  "forceFlagDescription": "example boolean flag",
-  "errorNoOrgResults": "No results found for the org '%s'."
+  "commandDescription": "create a scratch org from pooled devhub orgs",
+  "clientIdFlagDescription": "connected app consumer key",
+  "definitionFileFlagDescription": "path to a scratch org definition file",
+  "durationDaysFlagDescription": "duration of the scratch org (in days) (default:7, min:1, max:30)",
+  "noAncestorsFlagDescription": "do not include second-generation package ancestors in the scratch org",
+  "noNamespaceFlagDescription": "creates the scratch org with no namespace",
+  "setAliasFlagDescription": "set an alias for for the created scratch org",
+  "setDefaultUsernameFlagDescription": "set the created org as the default username",
+  "waitFlagDescription": "the streaming client socket timeout (in minutes) (default:6, min:2)",
+  "devhubPoolUsernamesFlagDescription": "username or alias list for the pooled dev hub orgs"
 }
