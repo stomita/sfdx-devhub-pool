@@ -12,7 +12,7 @@ describe('hello:org', () => {
       return Promise.resolve({ records: [] });
     })
     .stdout()
-    .command(['hello:org', '--targetusername', 'test@org.com'])
+    .command(['devhubpool:org:create', '--targetusername', 'test@org.com'])
     .it('runs hello:org --targetusername test@org.com', ctx => {
       expect(ctx.stdout).to.contain('Hello world! This is org: Super Awesome Org and I will be around until Tue Mar 20 2018!');
     });

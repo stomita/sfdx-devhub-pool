@@ -6,7 +6,7 @@ core.Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = core.Messages.loadMessages('sfdx-devhub-pool', 'org');
+const messages = core.Messages.loadMessages('sfdx-devhub-pool', 'org_create');
 
 export default class Org extends SfdxCommand {
 

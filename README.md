@@ -30,16 +30,16 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx-devhub-pool hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-helloorg--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolorgcreate--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
 
-## `sfdx-devhub-pool hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
 print a greeting and your org IDs
 
 ```
 USAGE
-  $ sfdx-devhub-pool hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] 
-  [--loglevel trace|debug|info|warn|error|fatal]
+  $ sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] 
+  [--json] [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
   -f, --force                                      example boolean flag
@@ -59,7 +59,7 @@ EXAMPLES
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [src/commands/hello/org.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/hello/org.ts)_
+_See code: [src/commands/devhubpool/org/create.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/devhubpool/org/create.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
