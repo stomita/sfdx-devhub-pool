@@ -12,76 +12,39 @@ sfdx-devhub-pool
 [![Downloads/week](https://img.shields.io/npm/dw/sfdx-devhub-pool.svg)](https://npmjs.org/package/sfdx-devhub-pool)
 [![License](https://img.shields.io/npm/l/sfdx-devhub-pool.svg)](https://github.com/stomita/sfdx-devhub-pool/blob/master/package.json)
 
-<!-- toc -->
-* [Debugging your plugin](#debugging-your-plugin)
-<!-- tocstop -->
-<!-- install -->
-<!-- usage -->
-```sh-session
-$ npm install -g sfdx-devhub-pool
-$ sfdx-devhub-pool COMMAND
-running command...
-$ sfdx-devhub-pool (-v|--version|version)
-sfdx-devhub-pool/1.0.0 darwin-x64 node-v8.14.0
-$ sfdx-devhub-pool --help [COMMAND]
-USAGE
-  $ sfdx-devhub-pool COMMAND
-...
-```
-<!-- usagestop -->
 <!-- commands -->
-* [`sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolorgcreate--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolorgcreate--p-array--f-filepath--d-integer--c--n--a-string--s--w-integer--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
 
-## `sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
-print a greeting and your org IDs
+create a scratch org from pooled devhub orgs
 
 ```
 USAGE
-  $ sfdx-devhub-pool devhubpool:org:create [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] 
-  [--json] [--loglevel trace|debug|info|warn|error|fatal]
+  $ sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w 
+  <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
-  -f, --force                                      example boolean flag
-  -n, --name=name                                  name to print
-  -u, --targetusername=targetusername              username or alias for the target org; overrides default target org
-  -v, --targetdevhubusername=targetdevhubusername  username or alias for the dev hub org; overrides default dev hub org
-  --apiversion=apiversion                          override the api version used for api requests made by this command
-  --json                                           format output as json
-  --loglevel=(trace|debug|info|warn|error|fatal)   [default: warn] logging level for this command invocation
+  -a, --setalias=setalias                         set an alias for for the created scratch org
+  -c, --noancestors                               do not include second-generation package ancestors in the scratch org
+  -d, --durationdays=durationdays                 duration of the scratch org (in days) (default:7, min:1, max:30)
+  -f, --definitionfile=definitionfile             path to a scratch org definition file
+  -n, --nonamespace                               creates the scratch org with no namespace
+  -p, --devhubpoolusernames=devhubpoolusernames   username or alias list for the pooled dev hub orgs
+  -s, --setdefaultusername                        set the created org as the default username
+  -u, --targetusername=targetusername             username or alias for the target org; overrides default target org
+  -w, --wait=wait                                 the streaming client socket timeout (in minutes) (default:6, min:2)
+  --apiversion=apiversion                         override the api version used for api requests made by this command
+  --json                                          format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal)  [default: warn] logging level for this command invocation
 
 EXAMPLES
-  $ sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
-     Hello world! This is org: MyOrg and I will be around until Tue Mar 20 2018!
-     My hub org id is: 00Dxx000000001234
-  
-  $ sfdx hello:org --name myname --targetusername myOrg@example.com
-     Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
+  $ sfdx devhubpool:org:create -p admin@hub01.example.org,admin@hub02.example.org -f config/enterprise-scratch-def.json 
+  -a TestOrg1
+  $ sfdx devhubpool:org:create -p admin@hub01.example.org,admin@hub02.example.org -a MyDevOrg -s edition=Developer
+  $ sfdx devhubpool:org:create -p admin@hub01.example.org,admin@hub02.example.org -f config/enterprise-scratch-def.json 
+  -a OrgWithOverrides username=testuser1@mycompany.org
 ```
 
 _See code: [src/commands/devhubpool/org/create.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/devhubpool/org/create.ts)_
 <!-- commandsstop -->
-<!-- debugging-your-plugin -->
-# Debugging your plugin
-We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
-
-To debug the `hello:org` command: 
-1. Start the inspector
-  
-If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch: 
-```sh-session
-$ sfdx hello:org -u myOrg@example.com --dev-suspend
-```
-  
-Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
-```sh-session
-$ NODE_OPTIONS=--inspect-brk bin/run hello:org -u myOrg@example.com
-```
-
-2. Set some breakpoints in your command code
-3. Click on the Debug icon in the Activity Bar on the side of VS Code to open up the Debug view.
-4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
-5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program. 
-6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-<br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
-Congrats, you are debugging!
