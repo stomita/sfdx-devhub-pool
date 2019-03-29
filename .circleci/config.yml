@@ -15,15 +15,8 @@ jobs:
           name: Install dependencies
           command: yarn
       - run:
-          name: Run
-          command: |
-            mkdir -p keys
-            echo ${DEVHUB_SERVER_KEY_BASE64} | base64 -d >> keys/server.key
-            for username in `echo ${DEVHUB_POOL_USERNAMES} | sed "s/,/ /g"`
-            do
-              yarn -s sfdx force:auth:jwt:grant -i ${SF_CLIENT_ID} -f keys/server.key -u ${username}
-            done
-            yarn -s sfdx force:org:list
+          name: Test
+          command: yarn test
       - save_cache:
           key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
           paths:

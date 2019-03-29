@@ -13,7 +13,34 @@ sfdx-devhub-pool
 [![License](https://img.shields.io/npm/l/sfdx-devhub-pool.svg)](https://github.com/stomita/sfdx-devhub-pool/blob/master/package.json)
 
 <!-- commands -->
+* [`sfdx-devhub-pool devhubpool:auth:jwt:grant -i <string> -f <filepath> [-r <string>] [-a <array>] [-u <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolauthjwtgrant--i-string--f-filepath--r-string--a-array--u-array---json---loglevel-tracedebuginfowarnerrorfatal)
 * [`sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolorgcreate--p-array--f-filepath--d-integer--c--n--a-string--s--w-integer--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+
+## `sfdx-devhub-pool devhubpool:auth:jwt:grant -i <string> -f <filepath> [-r <string>] [-a <array>] [-u <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+
+authorize pooled orgs using the JWT flow
+
+```
+USAGE
+  $ sfdx-devhub-pool devhubpool:auth:jwt:grant -i <string> -f <filepath> [-r <string>] [-a <array>] [-u <array>] 
+  [--json] [--loglevel trace|debug|info|warn|error|fatal]
+
+OPTIONS
+  -a, --setaliases=setaliases                     set aliases for for the authenticated orgs
+  -f, --jwtkeyfile=jwtkeyfile                     (required) path to a file containing the private key
+  -i, --clientid=clientid                         (required) connected app consumer key
+  -r, --instanceurl=instanceurl                   the login URL of the instance the org lives on
+  -u, --usernames=usernames                       username list for authentication
+  --json                                          format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal)  [default: warn] logging level for this command invocation
+
+EXAMPLES
+  $ sfdx devhubpool:auth:jwt:grant -u admin@hub01.example.org,admin@hub02.example.org -f keys/server.key -i CLIENT_ID
+  $ sfdx devhubpool:auth:jwt:grant -u admin@hub01.example.org,admin@hub02.example.org -f keys/server.key -i CLIENT_ID -a 
+  hub01,hub02
+```
+
+_See code: [src/commands/devhubpool/auth/jwt/grant.ts](https://github.com/stomita/sfdx-devhub-pool/blob/v1.0.0/src/commands/devhubpool/auth/jwt/grant.ts)_
 
 ## `sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 

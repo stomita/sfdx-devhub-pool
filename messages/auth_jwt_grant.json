@@ -1,0 +1,8 @@
+{
+  "commandDescription": "authorize pooled orgs using the JWT flow",
+  "clientIdFlagDescription": "connected app consumer key",
+  "instanceUrlFlagDescription": "the login URL of the instance the org lives on",
+  "jwtKeyFileFlagDescription": "path to a file containing the private key",
+  "setAliasesFlagDescription": "set aliases for the authenticated orgs",
+  "usernamesFlagDescription": "username list for authentication"
+}

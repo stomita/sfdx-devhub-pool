@@ -59,3 +59,34 @@ export async function createOrg(
   const { result } = await execCommand('force:org:create', args);
   return result as CreateOrgResult;
 }
+
+export type GrantJwtAuthResult = {
+  orgId: string,
+  accessToken: string,
+  instanceUrl: string,
+  loginUrl: string,
+  username: string,
+  clientId: string,
+  privateKey: string
+};
+
+export async function grantJwtAuth(
+  username: string,
+  alias: string | undefined,
+  params: { [name: string]: string | number | boolean }
+) {
+  const args: string[] = [];
+  args.push('-u', username);
+  if (alias) {
+    args.push('-a', alias);
+  }
+  for (const name of Object.keys(params)) {
+    const value = params[name];
+    args.push(`--${name}`);
+    if (typeof value !== 'boolean') {
+      args.push(String(value));
+    }
+  }
+  const { result } = await execCommand('force:auth:jwt:grant', args);
+  return result as GrantJwtAuthResult;
+}

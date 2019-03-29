@@ -16,7 +16,7 @@ describe('devhubpool:org:create', () => {
     .stub(externalCommand, 'createOrg', async (devhubusername, params) => {
       return {
         username: params.targetusername || 'test-scratch@example.com',
-        orgId: '00D0000000000000000'
+        orgId: '00D000000000000000'
       };
     })
     .stdout()
@@ -36,7 +36,7 @@ describe('devhubpool:org:create', () => {
   ts.command(['devhubpool:org:create', '--devhubpoolusernames', 'devhub01,devhub02', '--targetusername', 'test@my.org'])
     .it('runs devhubpool:org:create --devhubpoolusernames devhub01,devhub02', ctx => {
       expect(ctx.stdout).includes('test@my.org');
-      expect(ctx.stdout).includes('00D0000000000000000');
+      expect(ctx.stdout).includes('00D000000000000000');
     });
   
   /**
