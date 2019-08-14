@@ -13,8 +13,8 @@ SFDX plugin to generate scratch orgs without hitting daily limit by using multip
 [![License](https://img.shields.io/npm/l/sfdx-devhub-pool.svg)](https://github.com/stomita/sfdx-devhub-pool/blob/master/package.json)
 
 <!-- commands -->
-* [`sfdx devhubpool:auth:jwt:grant -i <string> -f <filepath> -u <array> [-r <string>] [-a <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolauthjwtgrant--i-string--f-filepath--u-array--r-string--a-array---json---loglevel-tracedebuginfowarnerrorfatal)
-* [`sfdx devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhub-pool-devhubpoolorgcreate--p-array--f-filepath--d-integer--c--n--a-string--s--w-integer--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`sfdx devhubpool:auth:jwt:grant -i <string> -f <filepath> -u <array> [-r <string>] [-a <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhubpoolauthjwtgrant--i-string--f-filepath--u-array--r-string--a-array---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`sfdx devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#sfdx-devhubpoolorgcreate--p-array--f-filepath--d-integer--c--n--a-string--s--w-integer--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
 
 ## `sfdx devhubpool:auth:jwt:grant -i <string> -f <filepath> -u <array> [-r <string>] [-a <array>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
