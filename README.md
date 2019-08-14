@@ -22,7 +22,7 @@ authorize pooled orgs using the JWT flow
 
 ```
 USAGE
-  $ sfdx-devhub-pool devhubpool:auth:jwt:grant -i <string> -f <filepath> -u <array> [-r <string>] [-a <array>] [--json] 
+  $ sfdx devhubpool:auth:jwt:grant -i <string> -f <filepath> -u <array> [-r <string>] [-a <array>] [--json] 
   [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
@@ -48,7 +48,7 @@ create a scratch org from pooled devhub orgs
 
 ```
 USAGE
-  $ sfdx-devhub-pool devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w 
+  $ sfdx devhubpool:org:create [-p <array>] [-f <filepath>] [-d <integer>] [-c] [-n] [-a <string>] [-s] [-w 
   <integer>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
