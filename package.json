@@ -8,7 +8,7 @@
     "@oclif/errors": "1",
     "@salesforce/command": "^1.0.1",
     "@salesforce/core": "^1.0.1",
-    "sfdx-cli": "^6.56.0",
+    "sfdx-cli": "^47.15.1",
     "tslib": "1"
   },
   "devDependencies": {
